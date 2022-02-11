@@ -8,3 +8,6 @@ According the answer of the article [Error creating sparkcontext locally An erro
 I find that `aws-glue-libs:glue_libs_2.0.0_image_01` don't have `javax.servlet-3.*`, so I just remove `netty-*` in `/home/glue_user/aws-glue-libs/jars/` folder. 
 
 I don't want to use `https` to connect a jupyter, so I add a variable `DISABLE_SSL=1` in `/home/glue_user/jupyter/jupyter_start.sh`.
+
+# Running the container
+`docker run -it -p 8888:8888 -p 4040:4040 -v ~/.aws:/home/glue_user/.aws --name glue amazon/aws-glue-libs:glue_libs_2.0.0_image_01 /home/glue_user/jupyter/jupyter_start.sh`
